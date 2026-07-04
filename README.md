@@ -67,6 +67,7 @@ discipline, and documentation that lets other people operate the result.
 - [Skills one-pager RU](proof/skills-onepager-ru.pdf)
 - [Skills stack map EN](proof/skills-stackmap-en.pdf)
 - [Skills stack map RU](proof/skills-stackmap-ru.pdf)
+- [Evidence matrix](proof/evidence-matrix.md)
 
 ## Stack Diagrams
 
@@ -76,6 +77,7 @@ credentials, or operational runbooks.
 
 - [Portfolio and project stack diagrams](docs/stack-diagrams.md)
 - [Public project index](docs/projects/README.md)
+- [Public demo roadmap](docs/public-demo-roadmap.md)
 
 ## Publication Boundary
 
