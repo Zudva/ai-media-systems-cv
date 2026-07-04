@@ -17,3 +17,19 @@ private production code or NDA-bound details.
 
 Public code links will be added only after each demo passes its own publication
 gate.
+
+## Card Format
+
+Each project card uses the same public-safe structure:
+
+- **What existed before** — upstream libraries, public standards, or an
+  existing project environment.
+- **What I did** — the concrete engineering slice I can claim.
+- **How I extended it** — integrations, runtime hardening, validation,
+  documentation, or operator workflow added around the baseline.
+- **Why it matters** — the skill signal for CV, interviews, and proof pagers.
+- **Diagram** — a Mermaid sketch of the public-safe architecture or workflow.
+
+This keeps authorship precise: upstream models and frameworks are credited as
+baselines; my work is described as implementation, adaptation, integration,
+hardening, validation, and production-readiness work around them.

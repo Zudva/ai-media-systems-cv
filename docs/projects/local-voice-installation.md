@@ -4,7 +4,14 @@
 
 Local conversational AI runtime for interactive installation scenarios.
 
-## Public-Safe Contribution
+## What Existed Before
+
+STT, LLM, TTS, audio-device libraries, and TouchDesigner/OSC style control
+surfaces exist independently. The hard part is making them behave like one
+installation-ready runtime with session state, operator controls, and predictable
+audio routing.
+
+## What I Did
 
 - Built voice-assistant workflows with microphone input and audio routing.
 - Used Whisper-style speech recognition, LLM response backends, TTS playback,
@@ -15,6 +22,33 @@ Local conversational AI runtime for interactive installation scenarios.
   and device calibration.
 - Kept real voices, persona datasets, generated audio, model artifacts, and
   credential history out of public scope.
+
+## How I Extended It
+
+The contribution is the runtime integration layer: microphone calibration,
+silence thresholds, STT fallback behavior, persona/session state, response
+generation, TTS playback, OSC control messages, reset/monitor commands, and
+operator-readable logs.
+
+## Diagram
+
+```mermaid
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> Listening: phone up / start
+  Listening --> Transcribing: speech captured
+  Transcribing --> Thinking: text recognized
+  Thinking --> Speaking: response generated
+  Speaking --> Idle: playback complete
+  Idle --> Reset: operator reset
+  Reset --> Idle
+```
+
+## Why It Matters
+
+This case shows applied local AI in a physical environment: voice input,
+language model logic, audio playback, OSC integration, and operator-friendly
+runtime behavior.
 
 ## Skills
 
