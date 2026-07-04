@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Zudva/babin-cv/schemas/material-protection-manifest.schema.json",
+  "title": "Material Protection Batch Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "batch_id",
+    "operator",
+    "created_at",
+    "source_repo_or_folder",
+    "target_project_slug",
+    "allowed_operations",
+    "signing_profile",
+    "timestamp_policy",
+    "public_export_path",
+    "stop_on_first_failure",
+    "artifact_items"
+  ],
+  "properties": {
+    "batch_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{2,80}$"
+    },
+    "operator": {
+      "type": "string",
+      "minLength": 2
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_repo_or_folder": {
+      "type": "string",
+      "minLength": 2
+    },
+    "target_project_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,80}$"
+    },
+    "allowed_operations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "preflight",
+          "sanitize",
+          "sign",
+          "verify",
+          "export-public"
+        ]
+      }
+    },
+    "signing_profile": {
+      "type": "string",
+      "enum": [
+        "none",
+        "local-dev",
+        "vault-transit",
+        "portfolio-key-tbd"
+      ]
+    },
+    "timestamp_policy": {
+      "type": "string",
+      "enum": [
+        "none",
+        "freetsa",
+        "paid-tsa-tbd"
+      ]
+    },
+    "public_export_path": {
+      "type": "string",
+      "minLength": 2
+    },
+    "stop_on_first_failure": {
+      "type": "boolean"
+    },
+    "artifact_items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifact_item"
+      }
+    }
+  },
+  "$defs": {
+    "artifact_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "source_path",
+        "classification",
+        "project_slug",
+        "competency_claims",
+        "allowed_public_formats",
+        "redaction_notes",
+        "c2pa_required",
+        "veo_provenance_required",
+        "release_decision"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{2,100}$"
+        },
+        "source_path": {
+          "type": "string",
+          "minLength": 2
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "public",
+            "sanitized-required",
+            "private-reference-only",
+            "do-not-publish"
+          ]
+        },
+        "project_slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,80}$"
+        },
+        "competency_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "allowed_public_formats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "md",
+              "json",
+              "png",
+              "jpg",
+              "webp",
+              "mp4",
+              "pdf",
+              "svg"
+            ]
+          }
+        },
+        "redaction_notes": {
+          "type": "string",
+          "minLength": 3
+        },
+        "c2pa_required": {
+          "type": "boolean"
+        },
+        "veo_provenance_required": {
+          "type": "boolean"
+        },
+        "release_decision": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "waived",
+            "rejected"
+          ]
+        }
+      }
+    }
+  }
+}

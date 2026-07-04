@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+dist/
+build/
+tmp/
+temp/
+logs/
+*.log
+
+# Internal preparation surfaces belong in private repos only.
+internal/
+cv-variants/
+variants/
+
+# Local/editor files.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

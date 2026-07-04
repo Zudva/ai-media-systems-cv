@@ -1,0 +1,60 @@
+{
+  "batch_id": "cascadeforge-demo-public-proof-001",
+  "operator": "zudva",
+  "created_at": "2026-07-03T00:00:00Z",
+  "source_repo_or_folder": "Zudva/cascadeforge-demo private repo",
+  "target_project_slug": "cascadeforge-demo",
+  "allowed_operations": [
+    "preflight",
+    "sanitize",
+    "sign",
+    "verify",
+    "export-public"
+  ],
+  "signing_profile": "portfolio-key-tbd",
+  "timestamp_policy": "freetsa",
+  "public_export_path": "public-staging/cascadeforge-demo",
+  "stop_on_first_failure": true,
+  "artifact_items": [
+    {
+      "artifact_id": "cascadeforge-architecture-diagram",
+      "source_path": "PRIVATE_INBOX/cascadeforge-demo/architecture-diagram.png",
+      "classification": "sanitized-required",
+      "project_slug": "cascadeforge-demo",
+      "competency_claims": [
+        "frontend architecture",
+        "AI workflow orchestration",
+        "public/private boundary design"
+      ],
+      "allowed_public_formats": [
+        "png",
+        "webp",
+        "md",
+        "json"
+      ],
+      "redaction_notes": "Remove private paths, customer names, hostnames, credentials, and internal issue references before publication.",
+      "c2pa_required": true,
+      "veo_provenance_required": true,
+      "release_decision": "pending"
+    },
+    {
+      "artifact_id": "cascadeforge-demo-readme-proof-card",
+      "source_path": "PRIVATE_INBOX/cascadeforge-demo/proof-card.md",
+      "classification": "sanitized-required",
+      "project_slug": "cascadeforge-demo",
+      "competency_claims": [
+        "documentation",
+        "evidence packaging",
+        "release hygiene"
+      ],
+      "allowed_public_formats": [
+        "md",
+        "json"
+      ],
+      "redaction_notes": "Keep only public-safe claims and link to protected artifacts. Do not include private runbooks or production deployment details.",
+      "c2pa_required": false,
+      "veo_provenance_required": true,
+      "release_decision": "pending"
+    }
+  ]
+}
