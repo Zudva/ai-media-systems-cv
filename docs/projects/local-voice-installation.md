@@ -4,6 +4,20 @@
 
 Local conversational AI runtime for interactive installation scenarios.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Mic["Microphone + audio routing"] --> Capture["Capture + silence detection"]
+  Capture --> STT["Whisper-style STT"]
+  STT --> Dialogue["LLM response + session state"]
+  Dialogue --> TTS["TTS synthesis"]
+  TTS --> Playback["Audio playback"]
+  OSC["OSC control/status"] --> Dialogue
+  Operator["Operator reset / monitor"] --> OSC
+  Dialogue --> Logs["Runtime logs"]
+```
+
 ## What Existed Before
 
 STT, LLM, TTS, audio-device libraries, and TouchDesigner/OSC style control

@@ -5,6 +5,19 @@
 Adaptation work around layered image generation and decomposition workflows,
 including Qwen-Image-Layered style RGBA layer extraction.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  UI["Gradio / CLI controls"] --> Pipeline["Layer decomposition pipeline"]
+  Runtime["PyTorch + CUDA + bfloat16"] --> Pipeline
+  Pipeline --> Layers["RGBA layer outputs"]
+  Layers --> Preview["Layer preview"]
+  Layers --> Export["PPTX / asset export"]
+  Pipeline --> Metadata["Run metadata"]
+  Metadata --> Reproduce["Reproduce / compare runs"]
+```
+
 ## What Existed Before
 
 Qwen-Image-Layered and similar research/demo workflows already provide the core

@@ -5,6 +5,20 @@
 Private implementation work around traceable dataset preparation for AI
 character training, with a planned clean-room public demo.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Sources["Dataset inputs"] --> Ledger["Trace ledger"]
+  Ledger --> Analysis["Dedup + pose/style/quality checks"]
+  Analysis --> Advisory["VLM advisory review"]
+  Advisory --> Human["Human decision gate"]
+  Human --> Keepers["Keeper subset"]
+  Keepers --> Seal["Sealed manifest"]
+  Seal --> TrainGate["Train gate"]
+  ReviewUI["Static review UI"] --> Human
+```
+
 ## What Existed Before
 
 Character LoRA and related training workflows usually depend on many small

@@ -24,6 +24,7 @@ provider credentials, prompts, generated media, or operational runbooks.
 ## Project Evidence
 
 - [Public project index](docs/projects/README.md)
+- [Stack diagrams](docs/stack-diagrams.md)
 - [Publication boundary](docs/publication-boundary.md)
 - [Material protection overview](docs/material-protection-overview.md)
 - [Material protection manifest schema](schemas/material-protection-manifest.schema.json)

@@ -5,6 +5,18 @@
 Applied Unreal Engine delivery experience focused on DevOps, final integration,
 project finishing, packaging, and runtime handoff.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Project["Existing Unreal project"] --> Integration["Plugin / module integration"]
+  Integration --> Build["Build + packaging checks"]
+  Build --> Runtime["Runtime configuration"]
+  Runtime --> QA["Smoke checks + final polish"]
+  QA --> Handoff["Operator handoff"]
+  Docs["Delivery notes"] --> Handoff
+```
+
 ## What Existed Before
 
 The work happened in an existing Unreal Engine project environment with domain

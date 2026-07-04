@@ -5,6 +5,19 @@
 Engineering work around GPU video processing, media validation, and
 post-production APIs for AI media workflows.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Operator["Operator / client"] --> API["Python job API"]
+  API --> Validate["FFmpeg probe + limits"]
+  Validate --> State["Job state + metadata"]
+  State --> Worker["GPU worker / model adapter"]
+  Runtime["Container + GPU lifecycle"] --> Worker
+  Worker --> Post["Codec / color / post-processing"]
+  Post --> Output["Output artifact + report"]
+```
+
 ## What Existed Before
 
 Video super-resolution, depth estimation, segmentation, FFmpeg, and color

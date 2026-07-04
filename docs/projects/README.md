@@ -18,6 +18,8 @@ private production code or NDA-bound details.
 Public code links will be added only after each demo passes its own publication
 gate.
 
+See also the central [stack diagrams](../stack-diagrams.md) page.
+
 ## Card Format
 
 Each project card uses the same public-safe structure:
@@ -29,6 +31,8 @@ Each project card uses the same public-safe structure:
   documentation, or operator workflow added around the baseline.
 - **Why it matters** — the skill signal for CV, interviews, and proof pagers.
 - **Diagram** — a Mermaid sketch of the public-safe architecture or workflow.
+- **Stack diagram** — a Mermaid sketch of the technology layers and integration
+  responsibility.
 
 This keeps authorship precise: upstream models and frameworks are credited as
 baselines; my work is described as implementation, adaptation, integration,

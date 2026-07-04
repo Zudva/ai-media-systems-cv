@@ -5,6 +5,19 @@
 Local-first AI workflow for meeting audio: transcription, optional diarization,
 summarization, and report generation.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Audio["Meeting audio"] --> Prep["FFmpeg conversion / splitting"]
+  Prep --> ASR["Whisper / faster-whisper ASR"]
+  ASR --> Diar["Optional diarization"]
+  ASR --> LLM["Local LLM summarization"]
+  Diar --> UI["Local review UI"]
+  LLM --> UI
+  UI --> Reports["JSON / Markdown / HTML reports"]
+```
+
 ## What Existed Before
 
 Whisper/faster-whisper, diarization libraries, local LLMs, and web UI

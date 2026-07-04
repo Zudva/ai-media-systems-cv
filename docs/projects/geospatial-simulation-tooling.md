@@ -5,6 +5,19 @@
 Simulation tooling experience around OpenStreetMap-style geodata, coordinate
 conversion, procedural scene data, and Unreal Engine workflows.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  OSM["OSM / Overpass data"] --> Parser["Nodes / ways / relations parser"]
+  Parser --> Filter["BBox filtering"]
+  Filter --> Coords["WGS84 -> local coordinates"]
+  Coords --> Features["Road / building / terrain features"]
+  Features --> Procedural["Procedural scene data"]
+  Procedural --> Runtime["Unreal simulation runtime"]
+  Procedural --> Validate["Validation logs"]
+```
+
 ## What Existed Before
 
 OpenStreetMap/Overpass data provides raw geospatial structure: nodes, ways,

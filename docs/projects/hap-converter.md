@@ -5,6 +5,20 @@
 Native multimedia tooling for realtime playback workflows: video decoding,
 RGBA frame conversion, DXT/BC compression, Snappy packing, and MOV/HAP muxing.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Use["CLI / batch conversion"] --> Core["C++20 converter core"]
+  Build["CMake + portable scripts"] --> Core
+  Core --> Decode["FFmpeg/libav decode"]
+  Decode --> Frames["RGBA frame buffer"]
+  Frames --> Compress["DXT/BC compression"]
+  Compress --> Pack["Snappy HAP packing"]
+  Pack --> Mux["MOV/HAP muxing"]
+  Mux --> Verify["ffprobe + synthetic smoke tests"]
+```
+
 ## What Existed Before
 
 HAP is an established video codec family used in realtime playback, media

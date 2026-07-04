@@ -6,6 +6,19 @@ Public-safe method description for traceable AI media workflows: manifests,
 hashes, verification gates, seal-style watermark status fields, and
 C2PA-compatible provenance framing.
 
+## Stack Diagram
+
+```mermaid
+flowchart TB
+  Boundary["Publication boundary"] --> Schema["JSON Schema contract"]
+  Artifact["Media artifact hash"] --> Manifest["Evidence manifest"]
+  Schema --> Manifest
+  Manifest --> Carrier["C2PA-compatible embed or sidecar"]
+  Carrier --> Gate["Verification gate"]
+  Lint["Leak / overclaim lint"] --> Gate
+  Gate --> Report["Pass / fail report"]
+```
+
 ## What Existed Before
 
 AI media workflows can produce valuable artifacts quickly, but the output chain
